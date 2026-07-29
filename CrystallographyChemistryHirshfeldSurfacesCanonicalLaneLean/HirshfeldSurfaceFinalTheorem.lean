@@ -1,0 +1,18 @@
+import canonicalLaneMathlib.AdmissibleClass
+import CrystallographyChemistryHirshfeldSurfacesCanonicalLaneLean.HirshfeldSurfaceDecomposition
+import CrystallographyChemistryHirshfeldSurfacesCanonicalLaneLean.FingerprintPlot
+import CrystallographyChemistryHirshfeldSurfacesCanonicalLaneLean.StructureFactorBridge
+import CrystallographyChemistryHirshfeldSurfacesCanonicalLaneLean.SpaceGroupClassification
+import CrystallographyChemistryHirshfeldSurfacesCanonicalLaneLean.InteratomicContactAnalysis
+
+namespace HautevilleHouse
+namespace CrystallographyChemistryHirshfeldSurfacesCanonicalLaneLean
+
+def ConstrainedHirshfeldClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_hirshfeld_endgame (A : AdmissibleClass) : ConstrainedHirshfeldClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end CrystallographyChemistryHirshfeldSurfacesCanonicalLaneLean
+end HautevilleHouse
